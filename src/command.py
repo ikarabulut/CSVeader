@@ -14,10 +14,13 @@ class Command:
       exit()
     elif self.command == "print":
       self.print(data)
+      return data, columns
     elif self.command == "add":
-      self.add(data, columns)
+      data = self.add(data, columns)
+      return data, columns
     elif self.command == "sort":
-      self.sort(data, columns)
+      data = self.sortby(data, columns)
+      return data, columns
 
 
   def print(self, data):
@@ -33,3 +36,13 @@ class Command:
     print("Row to be added: ")
     print(*new_row)
     data.append(new_row)
+    return data
+
+  def sortby(self, data, columns):
+    print(*columns)
+    sortby_request = input("which column would you like the list to be sorted by?")
+    if sortby_request not in columns:
+      print("please retry with proper column name")
+      self.sortby(data, columns)
+    col_idx = columns.index(sortby_request)
+    return sorted(data, key=lambda col: col[col_idx])

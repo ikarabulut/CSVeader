@@ -10,6 +10,6 @@ class Program:
   def run(self):
     while True:
       command = Command(input("please enter a command: \n"))
-      command.execute(self.data, self.col)
+      self.data, self.col = command.execute(self.data, self.col)
 
 
