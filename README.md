@@ -9,4 +9,8 @@ If you have the kaggle set from above in the /data dir then from the program roo
 python src/main.py data/housing.csv
 ```
 
-Available commands are: `"print", "sortby", "add", "exit"`
+### Commands
+`exit`: exits the program
+
+`print`: 
+  Input: (int) # of rows you want printed
